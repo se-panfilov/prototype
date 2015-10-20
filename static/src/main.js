@@ -13,6 +13,7 @@ angular.module('app', [
 
     //pages
     'app.pages.users', //Our User page (with all the stuff like modals, directives, etc)
+    'app.pages.other',
 
     //factories
     'app.user.factory', //User factory (encapsulate ajax queries, sockets, etc)
