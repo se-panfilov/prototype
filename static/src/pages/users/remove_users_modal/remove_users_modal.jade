@@ -1,0 +1,12 @@
+.remove_user_modal
+    .modal-header
+        h3.modal-title Remove user
+    .modal-body
+        .normal_modal_body
+            span(ng-bind="::user.name")
+    .modal-footer
+        button.btn.btn-default.pull_left(type="button", ng-click="cancel()") Cancel
+        button.btn.btn-danger(type="submit", ng-click="remove()")
+            i.fa.fa-trash-o
+            | &nbsp;
+            | Remove

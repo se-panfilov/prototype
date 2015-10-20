@@ -1,0 +1,14 @@
+.add_user_modal
+    .modal-header
+        h3.modal-title Add user
+    .modal-body
+        form#add_user_form(name="add_user_form")
+            .input-group
+                label.label_min_width_small.input-group-addon(for="user_name") Name
+                input#user_name.form-control(type="text", name="user_name", ng-model="user.name")
+    .modal-footer
+        button.btn.btn-default.pull_left(ng-click="cancel()") Cancel
+        button.btn.btn-success(type="submit", ng-disabled="add_user_form.$invalid", ng-click="add()")
+            i.fa.fa-plus
+            | &nbsp;
+            | Add

@@ -68,25 +68,11 @@ angular.module('app.pages.users', [
     //User page controller. Should be DRY.
     .controller('UsersPageCtrl', function ($scope, UserFactory, usersList, MessagesFactory) {
 
-        //Just a var for text messages
-        var _messages = {
-            userSuccessfulAddedMsg: 'User successful added',
-            userAddFailedMsg: 'User add failed',
-            userSuccessfulRemovedMsg: 'User successful removed',
-            userRemoveFailedMsg: 'User remove fails'
-        };
 
         //functions, which can be access from the html
         $scope.actions = {
             addUser: function () {
-                //Call method from factory
-                UserFactory.addUser(function () {
-                    //On success message
-                    MessagesFactory.showSuccessMsg(_messages.userSuccessfulAddedMsg);
-                },function () {
-                    //On error message
-                    MessagesFactory.showErrorMsg(_messages.userAddFailedMsg);
-                });
+
             },
             removeUser: function (id) {
                 UserFactory.removeUser(id).then(function () {
