@@ -1,8 +1,7 @@
-.navbar.navbar-inverse.pages_header
-    .navbar-inner
-        .container
-            ul.nav.navbar-nav
-                li(ng-class!="{active: $state.includes('users')}")
-                    button(type="button", ui-sref="users", ui-sref-opts="{reload: true}") Users
-                li(ng-class!="{active: $state.includes('other')}")
-                    button(type="button", ui-sref="other", ui-sref-opts="{reload: true}") Other
+.navbar.navbar-default.pages_header
+    .container
+        ul.nav.navbar-nav
+            li(ng-class!="{active: $state.includes('users')}")
+                a(href="", ui-sref="users", ui-sref-opts="{reload: true}") Users
+            li(ng-class!="{active: $state.includes('other')}")
+                a(href="", ui-sref="other", ui-sref-opts="{reload: true}") Other
