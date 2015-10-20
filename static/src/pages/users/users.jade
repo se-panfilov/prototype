@@ -1,0 +1,13 @@
+main-header
+.page_content.users_page
+    .container
+        h3 Users
+        ul
+            li(ng-repeat="user in UsersList track by $index")
+                span(ng-bind="$index")
+                span(ng-bind="user.name")
+                button.btn.btn-link(type="button", ng-click="removeUser()")
+        button.btn.btn-success(type="submit", ng-click="addUser()")
+            i.fa.fa-plus
+            | &nbsp;
+            Add
