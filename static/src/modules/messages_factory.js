@@ -15,13 +15,10 @@ angular.module('app.messages', ['toaster'])
 
         return {
             showSuccessMsg: function (message, title) {
-                title = title || null;
-
                 toaster.pop(_messageTypes.success, title, message);
             },
             showErrorMsg: function (message, title) {
                 title = title || _messagesTitles.error;
-
                 toaster.pop(_messageTypes.error, title, message);
             }
         };

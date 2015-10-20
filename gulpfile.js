@@ -1,5 +1,5 @@
 var gulp = require('gulp'), concat, rename, uglify, jade, sourcemaps, changed, minifyHTML, cachebreaker, stylus,
-    minifyCss, nib, jshint, size, templateCache, ngAnnotate;
+    minifyCss, nib, jshint, size, templateCache, ngAnnotate, connect;
 
 var src = {
     stylesDirs: [
@@ -130,7 +130,7 @@ gulp.task('stylus', function () {
 
 gulp.task('purify_css', function () {
     return purifyCss({
-        src: ['static/index.html', 'static/maintenance.html', 'static/dist/app.min.js', 'static/dist/app_templates.js', 'static/dist/vendor.min.js'],
+        src: ['static/index.html', 'static/dist/app.min.js', 'static/dist/app_templates.js', 'static/dist/vendor.min.js'],
         css: ['static/dist/vendor.min.css'],
         output: 'static/dist/vendor.purified.min.css'
     });
@@ -198,6 +198,16 @@ gulp.task('config', function () {
         .pipe(gulp.dest(dest.staticDir + '/src/modules/'));
 });
 
+gulp.task('webserver', function () {
+    connect = connect || require('gulp-connect');
+
+    connect.server({
+        root: [__dirname],
+        port: 8001,
+        livereload: true
+    });
+});
+
 gulp.task('watch', function () {
     var watch = require('gulp-watch');
 
@@ -226,3 +236,4 @@ gulp.task('default', function () {
     gulp.start('build');
     gulp.start('watch');
 });
+
