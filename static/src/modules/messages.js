@@ -6,14 +6,14 @@ angular.module('app.messages', ['toaster'])
 
         var _messageTypes = {
             success: 'success',
-            error: 'error',
+            error: 'error'
         };
 
         var _messagesTitles = {
             error: 'Error'
         };
 
-        var exports = {
+        return {
             showSuccessMsg: function (message, title) {
                 title = title || null;
 
@@ -26,6 +26,5 @@ angular.module('app.messages', ['toaster'])
             }
         };
 
-        return exports;
     })
 ;
