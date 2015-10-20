@@ -18,12 +18,7 @@ angular.module('app.pages.users', [
             .state('users', {
                 url: '/users',
                 templateUrl: 'users/users.html',
-                controller: 'UsersPageCtrl'//,//TODO (S.Panfilov) fix inject UserFactory
-                //resolve: {
-                //    usersList: function () {
-                //        return UserFactory.getUsersList();
-                //    }
-                //}
+                controller: 'UsersPageCtrl'
             })
 
             //Child routes (this one - for "add" modal
@@ -66,7 +61,7 @@ angular.module('app.pages.users', [
     })
 
     //User page controller. Should be DRY.
-    .controller('UsersPageCtrl', function ($scope, UserFactory, usersList, MessagesFactory) {
+    .controller('UsersPageCtrl', function ($scope, UserFactory, MessagesFactory) {
 
 
         //functions, which can be access from the html
@@ -88,7 +83,9 @@ angular.module('app.pages.users', [
         //Called once on page load
         (function init() {
             //add usersList to scope (passed by reference), so now we can access usersList from html
-            $scope.usersList = usersList;
+            UserFactory.getUsersList().then(function (data) {
+                $scope.usersList = data;
+            });
         })();
 
     });

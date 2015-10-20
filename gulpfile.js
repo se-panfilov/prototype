@@ -178,10 +178,10 @@ gulp.task('vendor_css', function () {
     var concatVendorCss = require('gulp-concat-css');
 
     gulp.src([
-        'static/libs/bower_components/bootstrap/dist/css/bootstrap.min.css',
-        'static/libs/bower_components/angular-ui-router-anim-in-out/css/anim-in-out.css',
-        'static/libs/bower_components/angularjs-toaster/toaster.css',
-        'static/libs/bower_components/angular-loading-bar/build/loading-bar.min.css'
+        'static/bower_components/bootstrap/dist/css/bootstrap.min.css',
+        'static/bower_components/angular-ui-router-anim-in-out/css/anim-in-out.css',
+        'static/bower_components/angularjs-toaster/toaster.css',
+        'static/bower_components/angular-loading-bar/build/loading-bar.min.css'
     ], {base: 'static/dist'})
         .pipe(concatVendorCss('vendor.min.css'))
         .pipe(minifyCss())
@@ -202,7 +202,7 @@ gulp.task('webserver', function () {
     connect = connect || require('gulp-connect');
 
     connect.server({
-        root: [__dirname],
+        root: [__dirname, 'static'],
         port: 8001,
         livereload: true
     });
