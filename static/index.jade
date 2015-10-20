@@ -1,0 +1,61 @@
+doctype html
+html#ng-app(xmlns:ng='http://angularjs.org', ng-app='app', lang='en', ng-strict-di)
+    head
+        meta(charset='UTF-8')
+        meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+        meta(name='keywords', content='Avalanche')
+        meta(http-equiv='Cache-Control', content='no-cache')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+
+        //Block with logos for a mobile devices
+        meta(name='msapplication-square70x70logo', content='static/img/ico/smalltile.png')
+        meta(name='msapplication-square150x150logo', content='static/img/ico/mediumtile.png')
+        meta(name='msapplication-wide310x150logo', content='static/img/ico/widetile.png')
+        meta(name='msapplication-square310x310logo', content='static/img/ico/largetile.png')
+
+        //App name
+        meta(name='application-name', content='Arex')
+
+        //CSS
+        //Concatenated and minified (and puridied) vendor css
+        link(href='{{cache-break:static/dist/vendor.purified.min.css}}', rel='stylesheet', media='all')
+        //Our app's css (minified)
+        link(href='{{cache-break:static/dist/app.min.css}}', rel='stylesheet', media='all')
+
+        //Favicons
+        link(rel='shortcut icon', href='static/img/ico/favicon.ico')
+        link(rel='icon', href='static/img/ico/favicon.ico', type='image/x-icon')
+        link(rel='shortcut icon', href='static/img/ico/favicon.ico', type='image/x-icon')
+
+        //Block with logos for a mobile devices
+        link(rel='apple-touch-icon-precomposed', sizes='144x144', href='static/img/ico/apple-touch-icon-144x144-precomposed.png')
+        link(rel='apple-touch-icon-precomposed', sizes='76x76', href='static/img/ico/apple-touch-icon-76x76-precomposed.png')
+        link(rel='apple-touch-icon-precomposed', sizes='114x114', href='static/img/ico/apple-touch-icon-114x114-precomposed.png')
+        link(rel='apple-touch-icon-precomposed', sizes='120x120', href='static/img/ico/apple-touch-icon-120x120-precomposed.png')
+        link(rel='apple-touch-icon-precomposed', sizes='152x152', href='static/img/ico/apple-touch-icon-152x152-precomposed.png')
+        link(rel='apple-touch-icon-precomposed', sizes='72x72', href='static/img/ico/apple-touch-icon-72x72-precomposed.png')
+        link(rel='apple-touch-icon-precomposed', href='static/img/ico/apple-touch-icon-57x57-precomposed.png')
+
+        title Arex
+    body(bg-color-transition)
+        //Toaster-container is a third-party lib to fancy messages to the user
+        toaster-container
+        //Our "pages" will be loaded here
+        #content_view.anim-in-out.anim-fade(ui-view="", data-anim-speed="200")
+
+    //JS
+    //Concatenated and minified vendor's js
+    //We uses here cahce-break to add number at the end of the reference to the file (?=asdadasd)
+    script(src='{{cache-break:static/dist/vendor.min.js}}', type='text/javascript')
+    //Our app's js (will be minified on production)
+    script(src='{{cache-break:static/dist/app.js}}', type='text/javascript')
+    //Our app's templates
+    script(src='{{cache-break:static/dist/app_templates.js}}', type='text/javascript')
+
+    //Some fixes for IE
+    <!--[if lt IE 9]>
+    //script(src='static/libs/bower_components/json3/lib/json3.min.js', type='text/javascript')
+    script.
+        document.createElement('ui-view');
+        document.createElement('toaster-container');
+    <![endif]-->
