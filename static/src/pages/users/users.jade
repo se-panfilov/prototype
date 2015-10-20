@@ -1,13 +1,14 @@
+//"main-header" this is angularjs directive - block which can be included in any page where it need to be.
 main-header
+//".users_page" - our page's root class to encapsulate styles in css (or stylus in our case)
 .page_content.users_page
     .container
         h3 Users
         ul
             li(ng-repeat="user in usersList track by $index")
-                span(ng-bind="$index")
-                span --
+                span.user_index(ng-bind="$index")
                 span(ng-bind="user.name")
-                button.btn.btn-link(type="button", ng-click="actions.removeUser()")
+                button.btn.btn-link.remove_btn(type="button", ng-click="actions.removeUser()")
         button.btn.btn-success(type="submit", ng-click="actions.addUser()")
             i.fa.fa-plus
             | &nbsp;
