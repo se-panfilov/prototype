@@ -1,7 +1,9 @@
 'use strict';
 
+//Define module with third-party licence
 angular.module('app.messages', ['toaster'])
 
+    //Factory just show success or errors messages for the user
     .factory('MessagesFactory', function (toaster) {
 
         var _messageTypes = {

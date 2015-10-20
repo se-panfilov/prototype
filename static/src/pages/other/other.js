@@ -4,6 +4,7 @@ angular.module('app.pages.other', [
     'ui.router'
 ])
 
+    //Base page route
     .config(function ($stateProvider) {
         $stateProvider
             .state('other', {
@@ -14,6 +15,7 @@ angular.module('app.pages.other', [
         ;
     })
 
+    //Page controller
     .controller('OtherPageCtrl', function () {
 
     });
