@@ -18,12 +18,12 @@ angular.module('app.pages.users', [
             .state('users', {
                 url: '/users',
                 templateUrl: 'users/users.html',
-                controller: 'UsersPageCtrl',
-                resolve: {
-                    usersList: function () {
-                        return UserFactory.getUsers();
-                    }
-                }
+                controller: 'UsersPageCtrl'//,//TODO (S.Panfilov) fix inject UserFactory
+                //resolve: {
+                //    usersList: function () {
+                //        return UserFactory.getUsersList();
+                //    }
+                //}
             })
 
             //Child routes (this one - for "add" modal
@@ -54,7 +54,7 @@ angular.module('app.pages.users', [
                             //Modal will be waiting until all queries in resolve block finished.
                             //After that we can use "userData" promise in modal's controller
                             userData: function () {
-                                return UserFactory.getUsersById(ids);
+                                return UserFactory.getUser(ids);
                             }
                         }
                     }).result.finally(function () {
